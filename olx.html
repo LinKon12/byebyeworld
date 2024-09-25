@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+            </style>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="styles.css"/>
+    <title>EcoSpace Item Search</title>
+    <style>
+        body {
+            font-family: Lato;
+            background-image: url("Assets/prebg.gif");
+            margin:0;
+            padding:20px;
+        }
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            height: 24vh;
+        }
+        #search-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background-color: #90EE90;
+        }
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .item-card {
+            background-color: white;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        .item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .item-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .item-owner {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search items...">
+        <div id="items-container" class="items-grid"></div>
+    </div>
+   
+    <footer>
+        <p>Build and deployed by BBW</p>
+        <p>Hackbattle IEEE 2024</p>
+    </footer>
+    <div class="items">
+        <div class="item" ><a href="index.html"></href><p>Home</p></a></div>
+        <div class="item"><a href="olx.html"><p>Ecocirc</p></div></a>
+        <div class="item"><a href="waste.html"><p>Heatmap</p></div></a>
+        <div class="item"><p>Energy analysis</p></div>
+        <div class="item"><p>Contribute </p></div>
+        <div class="item"><p>About us</p></div>
+    <script>
+        // Simulated database of items
+        const items = [
+            { id: 1, name: "Eco Cup", owner: "Alice", image: "/api/placeholder/100/100?text=Cup" },
+            { id: 2, name: "Green Mug", owner: "Bob", image: "/api/placeholder/100/100?text=Mug" },
+            { id: 3, name: "Reusable Bottle", owner: "Charlie", image: "/api/placeholder/100/100?text=Bottle" },
+            { id: 4, name: "Plant Pot", owner: "Diana", image: "/api/placeholder/100/100?text=Pot" },
+            { id: 5, name: "Bamboo Cutlery", owner: "Eve", image: "/api/placeholder/100/100?text=Cutlery" },
+            { id: 6, name: "Eco Bag", owner: "Frank", image: "/api/placeholder/100/100?text=Bag" },
+            { id: 7, name: "Solar Charger", owner: "Grace", image: "/api/placeholder/100/100?text=Charger" },
+            { id: 8, name: "Compost Bin", owner: "Henry", image: "/api/placeholder/100/100?text=Bin" },
+        ];
+
+        const searchInput = document.getElementById('search-input');
+        const itemsContainer = document.getElementById('items-container');
+
+        function displayItems(itemsToDisplay) {
+            itemsContainer.innerHTML = '';
+            itemsToDisplay.forEach(item => {
+                const itemCard = document.createElement('div');
+                itemCard.classList.add('item-card');
+                itemCard.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="item-image">
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-owner">by ${item.owner}</div>
+                `;
+                itemsContainer.appendChild(itemCard);
+            });
+        }
+
+        function searchItems(query) {
+            return items.filter(item => 
+                item.name.toLowerCase().includes(query.toLowerCase()) ||
+                item.owner.toLowerCase().includes(query.toLowerCase())
+            );
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value;
+            const filteredItems = searchItems(query);
+            displayItems(filteredItems);
+        });
+
+        // Initial display of all items
+        displayItems(items);
+    </script>
+</body>
+</html>
