@@ -33,5 +33,4 @@ public class UserController {
         existingUser.setUsername(user.getUsername());
         return userRepository.save(existingUser);
     }
-
 }
