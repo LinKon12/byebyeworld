@@ -2,19 +2,19 @@ package com.hackbattle.byebyeworld.Entity;
 
 import jakarta.persistence.*;
 
+
 @Entity
-public class User {
+@Table(name = "app_user")
+public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
+    private String name;
     private String email;
 
-    public User() {
-    }
-
-    public User(String username, String email) {
-        this.username = username;
+    public AppUser() {}
+    public AppUser(String name, String email) {
+        this.name = name;
         this.email = email;
     }
 
@@ -26,12 +26,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {

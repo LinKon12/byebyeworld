@@ -1,6 +1,9 @@
 package com.hackbattle.byebyeworld.Entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Entity;
 
 @Entity
 public class Product {
