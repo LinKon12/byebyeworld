@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/products")
 public class ProductController {
     private final ProductRepository productRepository;
@@ -22,6 +22,10 @@ public class ProductController {
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
         return productRepository.save(product);
+    }
+    @GetMapping("/search")
+    public List<Product> searchProducts(@RequestParam("keyword") String keyword) {
+        return productRepository.searchProducts(keyword);
     }
 
 }
