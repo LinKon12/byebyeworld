@@ -3,33 +3,23 @@ package com.hackbattle.byebyeworld.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "products")
-public class Products {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false)
     private Double price;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Users users;
-
-    public Products(Long id, String name, String description, Double price, Users users) {
+    public Product(Long id, String name, String description, Double price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.users = users;
+
     }
 
-    public Products() {
+    public Product() {
     }
 
     public Long getId() {
@@ -64,11 +54,4 @@ public class Products {
         this.price = price;
     }
 
-    public Users getUsers() {
-        return users;
-    }
-
-    public void setUsers(Users users) {
-        this.users = users;
-    }
 }

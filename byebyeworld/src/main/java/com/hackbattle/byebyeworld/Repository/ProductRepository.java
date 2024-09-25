@@ -1,10 +1,10 @@
 package com.hackbattle.byebyeworld.Repository;
 
-import com.hackbattle.byebyeworld.Entity.Products;
+import com.hackbattle.byebyeworld.Entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
-public interface ProductRepository extends JpaRepository<Products,Long> {
-    List<Products> findByUserId(Long userId);
+@Repository
+public interface ProductRepository extends JpaRepository<Product,Long> {
 }

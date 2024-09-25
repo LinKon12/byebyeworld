@@ -1,8 +1,9 @@
 package com.hackbattle.byebyeworld.Repository;
 
-import com.hackbattle.byebyeworld.Entity.Users;
+import com.hackbattle.byebyeworld.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<Users,Long> {
-    Users findByEmail(String email);
+@Repository
+public interface UserRepository extends JpaRepository<User,Long> {
 }

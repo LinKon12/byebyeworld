@@ -1,26 +1,19 @@
 package com.hackbattle.byebyeworld.Entity;
 
 import jakarta.persistence.*;
-import org.apache.catalina.User;
-
-import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, unique = true)
     private String username;
-    @Column(nullable = false,unique = true)
     private String email;
 
-    public Users() {
+    public User() {
     }
 
-    public Users(Long id, String username, String email) {
-        this.id = id;
+    public User(String username, String email) {
         this.username = username;
         this.email = email;
     }
