@@ -12,13 +12,9 @@ public class Product {
     private Long id;
     private String name;
     private String description;
-
-    private Double price;
-    public Product(String name, String description, Double price) {
+    public Product(String name, String description) {
         this.name = name;
         this.description = description;
-        this.price = price;
-
     }
 
     public Product() {
@@ -46,14 +42,6 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 
 }

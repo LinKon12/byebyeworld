@@ -27,5 +27,4 @@ public class ProductController {
     public List<Product> searchProducts(@RequestParam("keyword") String keyword) {
         return productRepository.searchProducts(keyword);
     }
-
 }
